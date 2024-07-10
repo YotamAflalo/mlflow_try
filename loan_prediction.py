@@ -59,7 +59,7 @@ X_train, X_test, y_train, y_test = train_test_split(X,y, test_size =0.3, random_
 # RandomForest
 rf = RandomForestClassifier(random_state=RANDOM_SEED)
 param_grid_forest = {
-    'n_estimators': [200,400],#, 700],
+    'n_estimators': [200,400, 700],
     'max_depth': [10,20,30],
     'criterion' : ["gini", "entropy"],
     'max_leaf_nodes': [50, 100]
@@ -115,7 +115,7 @@ grid_tree = GridSearchCV(
     )
 model_tree = grid_tree.fit(X_train, y_train)
 
-mlflow.set_experiment("Loan_prediction")
+mlflow.set_experiment("Loan")
 
 # Model evelaution metrics
 def eval_metrics(actual, pred):
